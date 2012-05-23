@@ -5,12 +5,12 @@ linkOpener = window.linkOpener =
 styleBorderSelected = "1px dashed orange"
 
 applyStyle = (e) ->
-  e.attributes.styleBorderOld = e.style.border
+  e.dataset.styleBorderOld = e.style.border
   e.style.border = styleBorderSelected
 
 restoreStyle = (e) ->
-  e.style.border = e.attributes.styleBorderOld
-  e.attributes.styleBorderOld = null
+  e.style.border = e.dataset.styleBorderOld
+  e.dataset.styleBorderOld = null
 
 keydownHandler = ->
   if event.keyCode is 17
