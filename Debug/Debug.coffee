@@ -15,7 +15,7 @@ window.LogMode = {
   All: 0xF
 }
 enumIs = (testedMode, testingMode) ->
-	(testedMode & testingMode) == testingMode
+	(testedMode & testingMode) is testingMode
 
 window.loga = (obj, mode = LogMode.String) ->
 	for key of obj

@@ -2,7 +2,7 @@ linkOpener = window.linkOpener =
   isCtrlDown: false
   elements: []
 
-styleBorderSelected = "1px dashed orange"
+styleBorderSelected = '1px dashed orange'
 
 applyStyle = (e) ->
   e.dataset.styleBorderOld = e.style.border
@@ -16,7 +16,7 @@ keydownHandler = ->
   if event.keyCode is 17
     linkOpener.isCtrlDown = true
 
-  if typeof window.onkeydownOld is "function" then window.onkeydownOld()
+  if typeof window.onkeydownOld is 'function' then window.onkeydownOld()
 
 onKeyDown = ->
   if event.keyCode is 17
@@ -32,18 +32,18 @@ onKeyDown = ->
     linkOpener.elements = []
     for j of hashedListLinks
       open j
-  window.onkeyupOld() if typeof window.onkeyupOld is "function"
+  window.onkeyupOld() if typeof window.onkeyupOld is 'function'
 
 onMouseOver = (e) ->
   if e.shiftKey
-    if @attributes.styleBorderOld or @attributes.styleBorderOld is ""
+    if @attributes.styleBorderOld or @attributes.styleBorderOld is ''
       restoreStyle this
       index = linkOpener.elements.indexOf(this)
       linkOpener.elements.splice index, 1  if index >= 0
     else
       linkOpener.elements.push this
       applyStyle this
-  if typeof @onmouseoverOld is "function" then @onmouseoverOld()
+  if typeof @onmouseoverOld is 'function' then @onmouseoverOld()
 
 window.addEventHandler 'keydown', onKeyDown
 window.addEventHandler 'mouseover', onMouseOver
