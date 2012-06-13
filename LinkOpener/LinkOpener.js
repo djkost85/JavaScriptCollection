@@ -11,7 +11,7 @@
 
 	console.log(scriptName + ' is launched');
 
-	var styleBorderSelected = '1px dashed orange';
+	var styleBorderSelected = '2px dashed orange';
 	var linksTable = {};
 	var linksCount = 0;
 
@@ -87,6 +87,6 @@
 	}
 
 	window.addEventListener('keydown', onKeyDown);
-	window.addEventListener('mouseover', onMouseOverOrOut);
-	window.addEventListener('mouseout', onMouseOverOrOut);
+	window.addEventListener('mousemove', onMouseOverOrOut);
+	//window.addEventListener('mouseout', onMouseOverOrOut);
 }).call(this);
