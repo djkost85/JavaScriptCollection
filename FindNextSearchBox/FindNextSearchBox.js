@@ -8,7 +8,7 @@
 
 	var elementTypes = ['text', 'search'];	// the element types to be included
 	var attributesToSearch = ['id', 'name', 'title', 'value', 'class', 'placeholder'];	// the attributes to be searched
-	var patterns = [/search/i, /keyword/i, /query/i, /lookup/i, /^q$/i, /^s$/i];	// the paaterns used to search
+	var patterns = [/search/i, /keyword/i, /query/i, /lookup/i, /^q$/i, /^s$/i, /find/i];	// the paaterns used to search
 	var _ = {};	// the exported object
 
 	// Rate the given element. [return] the rating from 0 to paterns.length, higher is more likely to be the search box.
