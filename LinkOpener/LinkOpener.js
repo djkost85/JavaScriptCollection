@@ -52,8 +52,8 @@
 		}
 	}
 
-	function onMouseOverOrOut(e) {
-		var element = e.target;
+	function onMouseMove(e) {
+		var element = e.currentTarget;
 
 		if (element.tagName === 'A') {
 			var isTriggered = false;
@@ -87,6 +87,11 @@
 	}
 
 	window.addEventListener('keydown', onKeyDown);
-	window.addEventListener('mousemove', onMouseOverOrOut);
-	//window.addEventListener('mouseout', onMouseOverOrOut);
+	
+	var anchorNodeList = document.querySelectorAll('a');
+
+	for (var i = 0; i < anchorNodeList.length; i++) {
+		var anchor = anchorNodeList[i];
+		anchor.addEventListener('mousemove', onMouseMove);
+	}
 }).call(this);
