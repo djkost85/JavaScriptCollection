@@ -16,13 +16,19 @@
 
 			// Copy all the attributes.
 			for (var j = 0; j < anchorElement.attributes.length; j++) {
-				var oldAttr = anchorElement.attributes[j];
-				var newAttr = document.createAttribute(oldAttr.name);
-				newAttr.value = oldAttr.value;
-				
-				spanElement.attributes.setNamedItem(newAttr);
+
+				try {
+					var oldAttr = anchorElement.attributes[j];
+					var newAttr = document.createAttribute(oldAttr.name);
+					newAttr.value = oldAttr.value;
+
+					spanElement.attributes.setNamedItem(newAttr);
+				} catch (e) {
+					console.warn('Could not create attribute "' + oldAttr.name + '=' + oldAttr.value + '"');
+					console.warn('with object:', anchorElement);
+				}
 			}
-			
+
 			// Add one more class as identifier.
 			spanElement.classList.add(scriptName);
 
