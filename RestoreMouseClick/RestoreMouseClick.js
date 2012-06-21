@@ -1,17 +1,47 @@
 (function () {
-	var functionNames = [
-	'oncontextmenu',
-	'ondragstart',
-	'onselectstart'
+	var objectsToCheck = [
+		window,
+		document,
+		document.body
 	];
 
-	for (var i = 0; i < functionNames.length; i++) {
-		var functionName = functionNames[i];
-		var func = document.body[functionName];
+	var functionNames = [
+		'oncontextmenu',
+		'ondragstart',
+		'onselectstart'
+	];
+	
+	var preventDefaultRegex = /preventDefault/;
 
-		if (func && func() === false) {
-			document.body[functionName] = null;
-			console.log('Restore "' + functionName + '"');
+	for (var i = 0; i < objectsToCheck.length; i++) {
+		var obj = objectsToCheck[i];
+
+		for (var j = 0; j < functionNames.length; j++) {
+			var functionName = functionNames[j];
+			var func = obj[functionName];
+			
+			try {
+				if (func) {
+					var funcText = func.toString();
+
+					if (preventDefaultRegex.test(funcText) === false) {	// if it doesn't seem to prevent the default action
+						if (func() !== false) {		// and if it doesn't return false
+							continue;	// then it is safe
+						}
+					}
+
+					// otherwise kill it
+					removeProperty(obj, functionName);
+				}
+			} catch (e) {
+				removeProperty(obj, functionName);
+				console.warn(e);
+			}
 		}
 	}
-}).call();
+	
+	function removeProperty(obj, functionName) {
+		obj[functionName] = null;
+		console.log('Restore "' + obj.toString() + '.' + functionName + '"');
+	}
+})();
