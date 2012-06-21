@@ -1,15 +1,22 @@
 (function () {
-	function searching() {
-		console.log('Listening at ' + (new Date()).toLocaleString());
+	var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
-		var elements = document.querySelectorAll("a.still_listening");
+	var observer = new MutationObserver(function (mutations) {
+		mutations.forEach(function (mutation) {
+			for (var i = 0; i < mutation.addedNodes.length; i++) {
+				var addedNode = mutation.addedNodes[i];			
+				var node = addedNode.querySelector('a.still_listening')||	// still listening button
+					addedNode.querySelector('a.toastItemReload');	// reload button
 
-		for (var i = 0; i < elements.length; i++) {
-			elements[i].click();
-		}
+				if (node) {
+					alert('successful');
+					console.log(mutations);
+					console.log('Node:', node);
+					node.click();
+				}
+			}
+		});
+	});
 
-		setTimeout(searching, 10000);
-	};
-
-	searching();
+	observer.observe(document, { childList: true, subtree: true });
 })();

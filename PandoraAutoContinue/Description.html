@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PandoraAutoContinue Description Page</title>
+</head>
+<body>
+    <article>
+        <h1>
+            Introduction</h1>
+        <p>
+            This userscript enhances your <a target="_blank" href="http://www.pandora.com">Pandora.com</a>
+            experience by automatically clicking "still listening" and "reload" buttons.</p>
+        <h1>
+            Requirement</h1>
+        <p>
+            Therefore, only <a target="_blank" href="http://en.wikipedia.org/wiki/Google_chrome">
+                Google Chrome</a> is supported for now.</p>
+        <p>
+            To have the best performance, this script uses <a target="_blank" href="http://www.w3.org/TR/dom/#mutation-observers">
+                DOM4 MutationObserver</a> to track the change of document. Unfortunately, most
+            browsers still use <a target="_blank" href="http://www.w3.org/TR/DOM-Level-3-Events/#event-type-DOMAttrModified">
+                DOM3 deprecated methods</a>, such as DOMAttrModified or DOMNodeInserted, as
+            the way to detect changes in the DOM tree.
+        </p>
+        <p>
+            If you are looking for Firefox-compatible userscript, please check <a href="http://userscripts.org/scripts/show/126773">
+                Pandora Unlimited</a> instead.</p>
+    </article>
+</body>
+</html>
