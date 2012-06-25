@@ -60,8 +60,6 @@ var observer = new MutationObserver(function (mutations) {
 				addedNode.querySelector('a.toastItemReload');	// reload button
 
 			if (node) {
-				node.click();
-
 				var elapsedSeconds = ((new Date()) - timeStarted) / 1000;
 
 				if (node.className.contains('still_listening')) {
@@ -71,7 +69,8 @@ var observer = new MutationObserver(function (mutations) {
 					console.log('reload');
 					addLogs({ time: new Date(), type: 'reload', elapsedSeconds: elapsedSeconds });
 				}
-
+				
+				node.click();
 				return;
 			}
 		}
