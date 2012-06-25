@@ -7,8 +7,6 @@
 
 			onXhrReadyStateChanged: function () {
 				if (this.readyState === 4) {
-					this.removeEventListener('readystatechange', GoogleShortener.onXhrReadyStateChanged);
-
 					if (this.status !== 200) {
 						console.error('The server returned bad status: ' + this.status);
 						return;
@@ -33,8 +31,6 @@
 				url = decodeURIComponent(url);
 				this.callback = callback;
 
-				this.xhr.addEventListener('readystatechange', this.onXhrReadyStateChanged);
-
 				if (this.shortenedUrlPatten.test(url)) {
 					this.xhr.open('GET', 'https://www.googleapis.com/urlshortener/v1/url?shortUrl=' + url);
 					this.xhr.send();
@@ -55,6 +51,8 @@
 				}
 			}
 		};
+		
+		GoogleShortener.xhr.addEventListener('readystatechange', GoogleShortener.onXhrReadyStateChanged);
 	}
 
 	var url = prompt('Enter your URL to process');
