@@ -15,6 +15,11 @@ loadLogs();
 
 function addLogs(log) {
 	logs.push(log);
+
+	if (logs.length > 100) {
+		logs.pop();
+	}
+
 	saveLogs();
 }
 
