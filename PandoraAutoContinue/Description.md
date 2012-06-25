@@ -13,3 +13,16 @@ If you are looking for Firefox-compatible userscript, please check [Pandora Unli
 <hr />
 # Maintenance
 Please submit your questions, suggestions or bug reports to [the GitHub repository](https://github.com/masonaxcte/JavaScriptCollection/issues). Thank you.
+
+<hr />
+# Changelog
+
+##2012-06-25
+
+[+] Logging
+
+The script will now save logs in localStorage['logs'], limited to 100 logs.
+
+[+] Auto-click reload button
+
+The script will now also click the reload button(link) automatically.
