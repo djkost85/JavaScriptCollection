@@ -5,7 +5,7 @@
 // @match           http://www.pandora.com/*
 // @run-at          document-end
 // @updateURL       https://github.com/masonaxcte/JavaScriptCollection/raw/master/PandoraAutoContinue/PandoraAutoContinue%20UserScripts.user.js
-// @version         1.2
+// @version         1.3
 // ==/UserScript==
 
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
