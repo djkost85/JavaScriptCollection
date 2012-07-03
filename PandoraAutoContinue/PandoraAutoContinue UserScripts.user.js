@@ -5,7 +5,7 @@
 // @match           http://www.pandora.com/*
 // @run-at          document-end
 // @updateURL       https://github.com/masonaxcte/JavaScriptCollection/raw/master/PandoraAutoContinue/PandoraAutoContinue%20UserScripts.user.js
-// @version         1.1
+// @version         1.2
 // ==/UserScript==
 
 console.log('Pandora Auto Continue');
@@ -47,7 +47,7 @@ function loadLogs() {
 	}
 }
 
-addLogs({time: new Date(), type: 'start'});
+addLogs({ time: new Date(), type: 'start' });
 var timeStarted = new Date();
 
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
@@ -56,21 +56,16 @@ var observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
 		for (var i = 0; i < mutation.addedNodes.length; i++) {
 			var addedNode = mutation.addedNodes[i];
-			var node = addedNode.querySelector('a.still_listening') ||	// still listening button
-				addedNode.querySelector('a.toastItemReload');	// reload button
+			var node = addedNode.parentNode.querySelector('a.toastItemReload, a.still_listening');
 
 			if (node) {
-				var elapsedSeconds = ((new Date()) - timeStarted) / 1000;
+				console.log('Matched mutation:\n', mutation);
 
-				if (node.className.contains('still_listening')) {
-					console.log('listening');
-					addLogs({ time: new Date(), type: 'listening', elapsedSeconds: elapsedSeconds });
-				} else {
-					console.log('reload');
-					addLogs({ time: new Date(), type: 'reload', elapsedSeconds: elapsedSeconds });
-				}
-				
 				node.click();
+
+				var elapsedSeconds = ((new Date()) - timeStarted) / 1000;
+				addLogs({ time: new Date(), type: 'click', elapsedSeconds: elapsedSeconds });
+
 				return;
 			}
 		}
