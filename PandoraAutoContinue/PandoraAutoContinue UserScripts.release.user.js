@@ -4,7 +4,7 @@
 // @description     Automatically click "I'm listening" and reload button in Pandora.com
 // @match           http://www.pandora.com/*
 // @run-at          document-end
-// @updateURL       https://github.com/masonaxcte/JavaScriptCollection/raw/master/PandoraAutoContinue/PandoraAutoContinue%20UserScripts.user.js
+// @updateURL       https://github.com/masonaxcte/JavaScriptCollection/raw/master/PandoraAutoContinue/PandoraAutoContinue%20UserScripts.release.user.js
 // @version         1.3
 // ==/UserScript==
 
