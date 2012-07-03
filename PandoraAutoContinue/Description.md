@@ -17,6 +17,12 @@ Please submit your questions, suggestions or bug reports to [the GitHub reposito
 <hr />
 # Changelog
 
+##2012-07-02
+
+[-] The release version won't contain logging functionality anymore.
+
+[*] Buttons will be clicked correctly now.
+
 ##2012-06-25
 
 [+] Logging
