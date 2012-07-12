@@ -1,9 +1,9 @@
 (function() {
 	var links = [
 		"http://www.demonoid.ph/files/?query=%s",
-		"https://kat.ph/search/%s",
+		"https://kat.ph/usearch/%s/",
 		"https://www.google.com/cse?cx=014395573825771924245:6cxgcwinhte&q#gsc.tab&gsc.q=%s",
-		"https://www.google.com/search?q=FilesTube|4Shared|MediaFire|RapidShare|Box.net %s"
+		"https://www.google.com/search?q=%s AND (4Shared OR MediaFire OR RapidShare OR Scribd OR DepositFiles OR Hotfile)"
 	];
 
 	var query = window.getSelection().toString().trim();
