@@ -42,6 +42,6 @@
 	
 	function removeProperty(obj, functionName) {
 		obj[functionName] = null;
-		console.log('Restore "' + obj.toString() + '.' + functionName + '"');
+		console.log('Restore "' + obj.tagName + '.' + functionName + '"');
 	}
 })();
