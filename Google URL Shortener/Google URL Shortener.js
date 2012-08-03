@@ -1,4 +1,4 @@
-(function() {
+(function () {
 	if (!window.GoogleShortener) {
 		window.GoogleShortener = {
 			shortenedUrlPatten: /(http:\/\/)?goo.gl\//i,
@@ -51,11 +51,15 @@
 				}
 			}
 		};
-		
+
 		GoogleShortener.xhr.addEventListener('readystatechange', GoogleShortener.onXhrReadyStateChanged);
 	}
 
-	var url = prompt('Enter your URL to process');
+	var url = prompt('Enter your URL to process', location.href);
+
+	if (url == null || url === '') {
+		return;
+	}
 
 	GoogleShortener.processUrl(url, function (data) {
 		if (data.error) {
