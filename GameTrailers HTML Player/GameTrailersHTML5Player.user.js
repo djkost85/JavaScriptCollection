@@ -4,7 +4,7 @@
 // @description     Replace GameTrailers flash player with HTML5 player. And automatically scroll to the video.
 // @match           http://www.gametrailers.com/*
 // @run-at          document-end
-// @updateURL       
+// @updateURL       https://github.com/masonaxcte/JavaScriptCollection/raw/master/GameTrailers%20HTML%20Player/GameTrailersHTML5Player.user.js
 // @version         1.0
 // ==/UserScript==
 
