@@ -9,8 +9,8 @@
 	query = prompt('Download Search', query);
 
 	if ((query != null) && (query = encodeURIComponent(query.trim()))) {
-		for (i = 0; i < links.length; i++) {
-			link = links[i];
+		for (var i = 0; i < links.length; i++) {
+			var link = links[i];
 			window.open(link.replace('%s', query));
 		}
 	}
