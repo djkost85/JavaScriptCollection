@@ -4,13 +4,13 @@
 // @description     Add the video link to summary section.
 // @match           http://www.infoq.com/presentations/*
 // @run-at          document-start
-// @updateURL       
+// @updateURL       https://github.com/masonaxcte/JavaScriptCollection/raw/master/InfoQ%20Video%20LInk/InfoQVideoLInk.user.js
 // @version         1.0
 // ==/UserScript==
 
 (function () {
     var objectElement = document.querySelector('#player');
-    var domain = /\w+.\w+.\w+/.exec(objectElement.data);
+    var domain = objectElement.data.match(/\w+.\w+.\w+/);
     var paramElement = objectElement.childNodes[3];
     var filename = paramElement.value.match(/presentations\/[^\.]+.mp4/);
     var link = 'http://' + domain + '/' + filename;
