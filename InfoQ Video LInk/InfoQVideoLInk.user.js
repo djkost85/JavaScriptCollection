@@ -3,7 +3,7 @@
 // @namespace       http://userscripts.org/users/masonaxcte
 // @description     Add the video link to summary section.
 // @match           http://www.infoq.com/presentations/*
-// @run-at          document-start
+// @run-at          document-end
 // @updateURL       https://github.com/masonaxcte/JavaScriptCollection/raw/master/InfoQ%20Video%20LInk/InfoQVideoLInk.user.js
 // @version         1.0
 // ==/UserScript==
