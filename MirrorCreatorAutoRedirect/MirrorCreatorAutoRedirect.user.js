@@ -4,7 +4,7 @@
 // @description     Automatically go to the download page.
 // @match           http://www.mirrorcreator.com/redirect/*
 // @run-at          document-end
-// @updateURL       
+// @updateURL       https://github.com/masonaxcte/JavaScriptCollection/raw/master/MirrorCreatorAutoRedirect/MirrorCreatorAutoRedirect.user.js
 // @version         1.0
 // ==/UserScript==
 
