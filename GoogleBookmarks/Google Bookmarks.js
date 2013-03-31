@@ -1,0 +1,1 @@
+window.open("https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=" + encodeURIComponent(document.location.toString()) + "&title=" + encodeURIComponent(document.title), "bkmk_popup", ",height=510px,width=550px,resizable=1,alwaysRaised=1");
