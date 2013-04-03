@@ -1,26 +1,20 @@
 (function () {
 
 	var id = "C4365D9F-F7E8-4D17-84E4-E351FD1B640A";
-	var styleMap = {
-		"fontFamily": "Calibri",
-		"maxWidth": "61.80339887498948%",
-		"margin": "0px auto"
-	};
-	var bodyElement = document.querySelector('body');
+	var style = "* {font-family: Calibri !important;} body {max-width: 61.80339887498948% !important; margin: 0 auto !important}";
+	var styleElement = null;
+	var elementId = "2F569819-CF80-44D3-87D7-406A02334818";
 
 	if (window[id]) {
-		for (var key in styleMap) {
-			bodyElement.style[key] = bodyElement.dataset[key];
-		}
+		styleElement = document.getElementById(elementId);
+		document.body.removeChild(styleElement);
 	} else {
-		var oldStyle = getComputedStyle(bodyElement);
+		styleElement = document.createElement('style');
+		styleElement.id = elementId;
+		styleElement.innerHTML = style;
 
-		for (var key in styleMap) {
-			bodyElement.dataset[key] = oldStyle[key];
-			bodyElement.style[key] = styleMap[key];
-		}
+		document.body.appendChild(styleElement);
 	}
 
 	window[id] = !Boolean(window[id]);
-
 })();
