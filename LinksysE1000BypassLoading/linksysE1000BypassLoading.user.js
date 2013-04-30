@@ -23,5 +23,11 @@
 		if (buttonElement != null) {
 			buttonElement.click();
 		};
+
+		buttonElement = document.querySelector('input[name=btaction]');
+
+		if (buttonElement != null) {
+			buttonElement.click();
+		};
 	}
 })();
