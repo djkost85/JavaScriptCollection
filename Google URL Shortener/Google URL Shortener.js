@@ -8,7 +8,7 @@
 			onXhrReadyStateChanged: function () {
 				if (this.readyState === 4) {
 					if (this.status !== 200) {
-						console.error('The server returned bad status: ' + this.status);
+						alert('The server returned bad status: ' + this.status);
 						return;
 					}
 
@@ -17,7 +17,7 @@
 					try {
 						data = JSON.parse(this.response);
 					} catch (e) {
-						console.error('Error on parse response data', e.message, e);
+						alert('Error on parse response data', e.message, e);
 						return;
 					}
 
@@ -63,7 +63,7 @@
 
 	GoogleShortener.processUrl(url, function (data) {
 		if (data.error) {
-			console.error('Error in server response.\n', data);
+			alert('Error in server response.\n' + data);
 			return;
 		}
 
