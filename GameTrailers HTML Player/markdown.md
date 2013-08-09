@@ -10,4 +10,4 @@ This userscript introduces several features to enhances your experience watching
 
 <hr />
 # Maintenance
-Please submit your questions, suggestions or bug reports to [the GitHub repository](https://github.com/masonaxcte/JavaScriptCollection/issues). Thank you.
+Please submit your questions, suggestions or bug reports to [the GitHub repository](https://github.com/masonwan/JavaScriptCollection/issues). Thank you.
