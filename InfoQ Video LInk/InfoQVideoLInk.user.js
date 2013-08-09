@@ -1,10 +1,10 @@
 // ==UserScript== http://wiki.greasespot.net/Metadata_block
 // @name            InfoQ Video Link
-// @namespace       http://userscripts.org/users/masonaxcte
+// @namespace       http://userscripts.org/users/masonwan
 // @description     Add the video link to summary section.
 // @match           http://www.infoq.com/presentations/*
 // @run-at          document-end
-// @updateURL       https://github.com/masonaxcte/JavaScriptCollection/raw/master/InfoQ%20Video%20LInk/InfoQVideoLInk.user.js
+// @updateURL       https://github.com/masonwan/JavaScriptCollection/raw/master/InfoQ%20Video%20LInk/InfoQVideoLInk.user.js
 // @version         1.0
 // ==/UserScript==
 

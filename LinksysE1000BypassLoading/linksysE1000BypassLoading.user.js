@@ -1,6 +1,6 @@
 // ==UserScript== http://wiki.greasespot.net/Metadata_block
 // @name            Linksys E1000 Auto Loading Bypass
-// @namespace       http://userscripts.org/users/masonaxcte
+// @namespace       http://userscripts.org/users/masonwan
 // @description     Auto click the annoying buttons in the loading pages.
 // @match           http://192.168.1.1/*
 // @run-at          document-end

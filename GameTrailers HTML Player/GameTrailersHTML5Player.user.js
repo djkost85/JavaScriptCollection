@@ -1,10 +1,10 @@
 // ==UserScript== http://wiki.greasespot.net/Metadata_block
 // @name            GameTrailers HTML5 Player
-// @namespace       http://userscripts.org/users/masonaxcte
+// @namespace       http://userscripts.org/users/masonwan
 // @description     Replace GameTrailers flash player with HTML5 player. And automatically scroll to the video.
 // @match           http://www.gametrailers.com/*
 // @run-at          document-end
-// @updateURL       https://github.com/masonaxcte/JavaScriptCollection/raw/master/GameTrailers%20HTML%20Player/GameTrailersHTML5Player.user.js
+// @updateURL       https://github.com/masonwan/JavaScriptCollection/raw/master/GameTrailers%20HTML%20Player/GameTrailersHTML5Player.user.js
 // @version         1.0
 // ==/UserScript==
 
