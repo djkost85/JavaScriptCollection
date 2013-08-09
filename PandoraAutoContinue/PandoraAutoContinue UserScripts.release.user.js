@@ -1,14 +1,12 @@
 // ==UserScript== http://wiki.greasespot.net/Metadata_block
 // @name            Pandora Auto Continue
-// @namespace       http://userscripts.org/users/masonaxcte
+// @namespace       http://userscripts.org/users/masonwan
 // @description     Automatically click "I'm listening" and reload button in Pandora.com
 // @match           http://www.pandora.com/*
 // @run-at          document-end
-// @updateURL       https://github.com/masonaxcte/JavaScriptCollection/raw/master/PandoraAutoContinue/PandoraAutoContinue%20UserScripts.release.user.js
-// @version         1.3
+// @updateURL       https://github.com/masonwan/JavaScriptCollection/raw/master/PandoraAutoContinue/PandoraAutoContinue%20UserScripts.release.user.js
+// @version         1.4
 // ==/UserScript==
-
-var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
 var observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
