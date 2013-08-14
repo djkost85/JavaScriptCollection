@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		body {
+			max-width: 61%;
+			margin: 0 auto;
+		}
+
+		div {
+			margin-top: 20px;
+		}
+	</style>
+	<script type="text/javascript">
+		function restore() {
+			document.querySelector('#a').onselectstart = function () { return true; };
+
+			//document.querySelector('#b').ondragstart = function () { return true; };
+			document.querySelector('#b')['onmousedown'] = function () { return true; };
+		}
+	</script>
+</head>
+<body>
+	<div id="a" onselectstart="return false;">
+		A "Hello world" program is a computer program that outputs "Hello, world" on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language, or to verify that a language or system is operating correctly.
+In a device that does not display text, a simple program to produce a signal, such as turning on an LED, is often substituted for "Hello world" as the introductory program.
+	</div>
+	<div id="b" onmousedown="return false;">
+		A "Hello world" program is a computer program that outputs "Hello, world" on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language, or to verify that a language or system is operating correctly.
+In a device that does not display text, a simple program to produce a signal, such as turning on an LED, is often substituted for "Hello world" as the introductory program.
+	</div>
+	<div id="c" onclick="return false;">
+		A "Hello world" program is a computer program that outputs "Hello, world" on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language, or to verify that a language or system is operating correctly.
+In a device that does not display text, a simple program to produce a signal, such as turning on an LED, is often substituted for "Hello world" as the introductory program.
+	</div>
+	<div>
+		A "Hello world" program is a computer program that outputs "Hello, world" on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language, or to verify that a language or system is operating correctly.
+In a device that does not display text, a simple program to produce a signal, such as turning on an LED, is often substituted for "Hello world" as the introductory program.
+	</div>
+	<div>
+		A "Hello world" program is a computer program that outputs "Hello, world" on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language, or to verify that a language or system is operating correctly.
+In a device that does not display text, a simple program to produce a signal, such as turning on an LED, is often substituted for "Hello world" as the introductory program.
+	</div>
+	<div>
+		<button onclick="restore();">Restore</button>
+	</div>
+</body>
+</html>
