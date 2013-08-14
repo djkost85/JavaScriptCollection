@@ -1,9 +1,19 @@
-document.addEventListener("load", onLoad);
-document.addEventListener("DOMContentLoaded", onReady);
+// ==UserScript== http://wiki.greasespot.net/Metadata_block
+// @name            Google Search Enhancement
+// @namespace       http://userscripts.org/users/masonwan
+// @description     Open Google Search results in the same time with keyboard shortcut
+// @match           https://www.google.com/*
+// @run-at          document-start
+// @updateURL
+// @version         1.0
+// ==/UserScript==
 
-function onLoad() {
-	document.removeEventListener("load", onLoad);
+(function () {
 	document.addEventListener('keydown', function (e) {
+		if (!e.ctrlKey && !e.altKey) {
+			return;
+		}
+
 		var keyCode = e.keyCode;
 
 		if (keyCode > 95) {
@@ -11,8 +21,7 @@ function onLoad() {
 		}
 
 		if (keyCode < 48 || keyCode > 57) {
-			console.log('Not pass: ' + e.keyCode);
-		    return;
+			return;
 		}
 
 		var pressedNum = keyCode - 48;
@@ -22,25 +31,25 @@ function onLoad() {
 		}
 
 		openResults(pressedNum);
+
+		e.preventDefault();
+		e.stopPropagation();
+		e.stopImmediatePropagation();
 	});
-}
 
-function onReady() {
-	document.removeEventListener("DOMContentLoaded", onReady);
-}
+	function openResults(numberItems) {
+		var anchorElements = document.querySelectorAll('#ires h3.r a');
 
-function openResults(numberItems) {
-	var anchorElements = document.querySelectorAll('#ires h3 a');
-
-	for (var i = 0; i < numberItems; i++) {
-		var anchorElement = anchorElements[i];
-		console.log(anchorElement);
-		middleClickOnElement(anchorElement);
+		for (var i = 0, len = anchorElements.length; i < len && i < numberItems; i++) {
+			var anchorElement = anchorElements[i];
+			middleClickOnElement(anchorElement);
+			anchorElement.style.backgroundColor = 'PaleGreen';
+		}
 	}
-}
 
-function middleClickOnElement(element) {
-	var rightClickEvent = document.createEvent('MouseEvents');
-	rightClickEvent.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 1, null);
-	element.dispatchEvent(rightClickEvent);
-}
+	function middleClickOnElement(element) {
+		var rightClickEvent = document.createEvent('MouseEvents');
+		rightClickEvent.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 1, null);
+		element.dispatchEvent(rightClickEvent);
+	}
+}).call();
