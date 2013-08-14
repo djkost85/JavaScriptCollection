@@ -64,7 +64,7 @@
 		window.removeEventListener('keyup', onKeyUp);
 	}
 
-	function rightClickOnElement(element) {
+	function middleClickOnElement(element) {
 		var rightClickEvent = document.createEvent('MouseEvents');
 		rightClickEvent.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 1, null);
 		element.dispatchEvent(rightClickEvent);
@@ -81,7 +81,7 @@
 		}
 
 		mark(element);
-		rightClickOnElement(element);
+		middleClickOnElement(element);
 	}
 
 	window.addEventListener('keydown', onKeyDown);
