@@ -40,7 +40,7 @@
 	function openResults(numberItems) {
 		var anchorElements = document.querySelectorAll('#ires h3.r a');
 
-		for (var i = 0, len = anchorElements.length; i < len && i < numberItems; i++) {
+		for (var i = Math.min(anchorElements.length, numberItems) - 1; i >= 0; i--) {
 			var anchorElement = anchorElements[i];
 			middleClickOnElement(anchorElement);
 			anchorElement.style.backgroundColor = 'PaleGreen';
