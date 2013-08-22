@@ -11,7 +11,7 @@
 (function () {
 	document.addEventListener('keydown', function (e) {
 		if (!e.ctrlKey && !e.altKey) {
-			return;
+			return true;
 		}
 
 		var keyCode = e.keyCode;
@@ -21,8 +21,13 @@
 		}
 
 		if (keyCode < 48 || keyCode > 57) {
-			return;
+			return true;
 		}
+
+		e.preventDefault();
+		e.stopPropagation();
+		e.stopImmediatePropagation();
+
 
 		var pressedNum = keyCode - 48;
 
@@ -32,9 +37,7 @@
 
 		openResults(pressedNum);
 
-		e.preventDefault();
-		e.stopPropagation();
-		e.stopImmediatePropagation();
+		return false;
 	});
 
 	function openResults(numberItems) {
