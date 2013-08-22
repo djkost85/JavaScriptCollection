@@ -5,7 +5,7 @@
 // @match           https://www.google.com/*
 // @run-at          document-start
 // @updateURL
-// @version         1.1
+// @version         1.2
 // ==/UserScript==
 
 (function () {
