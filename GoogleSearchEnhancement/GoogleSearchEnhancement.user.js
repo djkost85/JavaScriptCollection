@@ -5,7 +5,7 @@
 // @match           https://www.google.com/*
 // @run-at          document-start
 // @updateURL
-// @version         1.2
+// @version         1.3
 // ==/UserScript==
 
 (function () {
@@ -43,7 +43,7 @@
 	function openResults(numberItems) {
 		var anchorElements = document.querySelectorAll('#ires h3.r a');
 
-		for (var i = Math.min(anchorElements.length, numberItems) - 1; i >= 0; i--) {
+		for (var i = 0, len = Math.min(anchorElements.length, numberItems); i < len; i++) {
 			var anchorElement = anchorElements[i];
 			middleClickOnElement(anchorElement);
 			anchorElement.style.backgroundColor = 'PaleGreen';
