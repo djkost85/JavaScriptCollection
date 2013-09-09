@@ -1,17 +1,17 @@
 var allElements = document.querySelectorAll('*');
+allElements[allElements.length] = document;
 var removingEvents = [
 	'onmousedown',
 	'onmouseover',
 	'onclick',
 	'ondragstart',
 	'onselectstart'
-]
+];
 
 var removingPatterns = [
 	/\s*return false;\s*/,
 	/\.fucus\(\)/
-]
-
+];
 
 for (var i = 0; i < allElements.length; i++) {
 	var element = allElements[i];
