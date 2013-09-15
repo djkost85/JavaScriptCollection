@@ -4,73 +4,49 @@
 // @description     Automatically click "I'm listening" and reload button in Pandora.com
 // @match           http://www.pandora.com/*
 // @run-at          document-end
-// @updateURL       https://github.com/masonwan/JavaScriptCollection/raw/master/PandoraAutoContinue/PandoraAutoContinue%20UserScripts.debug.user.js
-// @version         2.0
+// @updateURL
+// @version         2.1
 // ==/UserScript==
 
-var SCRIPT_NAME = 'PandoraAutoContinue';
-
 function addLogs(log) {
-	log.time = new Date();
-	logs.push(log);
+	loadLogs();
 
-	if (logs.length > 100) {
-		logs.pop();
-	}
+	var date = new Date();
+	logs.push(date.toISOString() + ':' + log);
 
 	saveLogs();
 }
 
-function saveLogs() {
-	var logObject = {};
-
-	try {
-		logObject = JSON.stringify(logs);
-	} catch (e) {
-		console.error('Error on stringifying logs');
-	}
-
-	localStorage.setItem('logs', logObject);
-}
-
 function loadLogs() {
-	var logObject = localStorage.getItem('logs');
-
-	if (logObject !== null) {
+	if (localStorage.logs) {
 		try {
-			logs = JSON.parse(logObject);
-		} catch (e) {
-			console.error('Error on stringifying logs');
+			logs = JSON.parse(localStorage.logs);
+			console.log('Load logs:', logs);
+		} catch (ex) {
+			console.error('Error on parsing logs:', ex);
 		}
+	} else {
+		localStorage.logs = '[]';
+		logs = [];
 	}
 }
 
-function printLogs() {
-	var logObject = {};
-
+function saveLogs() {
 	try {
-		logObject = JSON.stringify(logs);
-	} catch (e) {
-		console.error('Error on stringifying logs');
+		localStorage.logs = JSON.stringify(logs);
+	} catch (ex) {
+		console.error('Error on stringify logs:', ex);
 	}
-
-	console.log(logObject.replace(/{/g, '\n\t{'));
 }
 
-if (!window[SCRIPT_NAME]) {
-	window[SCRIPT_NAME] = {
-		logs: []
-	};
-}
-
-var logs = window[SCRIPT_NAME].logs;
-
-loadLogs();
+var SCRIPT_NAME = 'PandoraAutoContinue';
+var logs = [];
+addLogs('Script starts');
 
 var observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
 		for (var i = 0; i < mutation.addedNodes.length; i++) {
-			var timeText = (new Date()).toUTCString();
+			var timeText = (new Date()).toISOString();
 			var addedNode = mutation.addedNodes[i];
 			var parent = addedNode.parentElement || addedNode.parentNode;
 
@@ -84,7 +60,11 @@ var observer = new MutationObserver(function (mutations) {
 			if (buttonElement) {
 				console.log(timeText + ': matched mutation:\n', mutation);
 
-				buttonElement.click();
+				setTimeout(function delayClick() {
+					buttonElement.click();
+					addlogs('Button clicked');
+				}, 1000);
+
 				addLogs({ mutation: mutation });
 
 				return;
