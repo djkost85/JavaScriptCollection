@@ -61,13 +61,13 @@ var observer = new MutationObserver(function (mutations) {
 				console.log(timeText + ': matched mutation:\n', mutation);
 
 				setTimeout(function delayClick() {
+					var buttonElement = document.querySelector('a.still_listening');
+					console.log('buttonElement:', buttonElement);
 					buttonElement.click();
-					addlogs('Button clicked');
+					addLogs('Button clicked');
 				}, 1000);
 
-				addLogs({ mutation: mutation });
-
-				return;
+				break;
 			}
 		}
 	});
