@@ -41,7 +41,7 @@
 	});
 
 	function openResults(numberItems) {
-		var anchorElements = document.querySelectorAll('#ires h3.r a');
+		var anchorElements = document.querySelectorAll('#ires .rc > h3.r > a');
 
 		for (var i = 0, len = Math.min(anchorElements.length, numberItems); i < len; i++) {
 			var anchorElement = anchorElements[i];
