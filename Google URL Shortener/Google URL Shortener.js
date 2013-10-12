@@ -55,7 +55,8 @@
 		GoogleShortener.xhr.addEventListener('readystatechange', GoogleShortener.onXhrReadyStateChanged);
 	}
 
-	var url = prompt('Enter your URL to process', location.href);
+	var currentUrl = location.href;
+	var url = prompt('Enter your URL to process', currentUrl);
 
 	if (url == null || url === '') {
 		return;
