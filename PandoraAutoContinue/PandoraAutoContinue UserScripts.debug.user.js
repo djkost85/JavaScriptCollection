@@ -5,7 +5,7 @@
 // @match           http://www.pandora.com/*
 // @run-at          document-end
 // @updateURL
-// @version         2.1
+// @version         2.2
 // ==/UserScript==
 
 function addLogs(log) {
@@ -21,7 +21,7 @@ function loadLogs() {
 	if (localStorage.logs) {
 		try {
 			logs = JSON.parse(localStorage.logs);
-			console.log('Load logs:', logs);
+			console.debug('Load logs:', logs);
 		} catch (ex) {
 			console.error('Error on parsing logs:', ex);
 		}
@@ -51,18 +51,17 @@ var observer = new MutationObserver(function (mutations) {
 			var parent = addedNode.parentElement || addedNode.parentNode;
 
 			if (!parent) {
-				console.log(timeText + ': mutation did not match');
 				continue;
 			}
 
 			var buttonElement = parent.querySelector('a.still_listening');
 
 			if (buttonElement) {
-				console.log(timeText + ': matched mutation:\n', mutation);
+				console.debug(timeText + ': matched mutation:\n', mutation);
 
 				setTimeout(function delayClick() {
 					var buttonElement = document.querySelector('a.still_listening');
-					console.log('buttonElement:', buttonElement);
+					console.debug('buttonElement:', buttonElement);
 					buttonElement.click();
 					addLogs('Button clicked');
 				}, 1000);
