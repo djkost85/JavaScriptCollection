@@ -76,7 +76,7 @@
 				alert('Unexpected status: ' + data.status);
 		}
 
-		var url = prompt('Enter your URL to process', data.id);
+		var url = prompt('Your shortened URL\n', data.id);
 		if (url == null || url === '') {
 			return;
 		}
