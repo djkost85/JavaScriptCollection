@@ -56,13 +56,7 @@
 	}
 
 	var currentUrl = location.href;
-	var url = prompt('Enter your URL to process', currentUrl);
-
-	if (url == null || url === '') {
-		return;
-	}
-
-	GoogleShortener.processUrl(url, function (data) {
+	GoogleShortener.processUrl(currentUrl, function (data) {
 		if (data.error) {
 			alert('Error in server response.\n' + data);
 			return;
@@ -82,6 +76,32 @@
 				alert('Unexpected status: ' + data.status);
 		}
 
-		prompt(message, (data.status) ? data.longUrl : data.id);
+		var url = prompt('Enter your URL to process', data.id);
+		if (url == null || url === '') {
+			return;
+		}
+
+		GoogleShortener.processUrl(url, function (data) {
+			if (data.error) {
+				alert('Error in server response.\n' + data);
+				return;
+			}
+
+			var message = '';
+
+			switch (data.status) {
+				case 'OK':
+				case undefined:
+					break;
+				case 'MALWARE':
+				case 'REMOVE':
+					message = 'The link is marked as ' + data.status;
+					break;
+				default:
+					alert('Unexpected status: ' + data.status);
+			}
+
+			prompt(message, (data.status) ? data.longUrl : data.id);
+		});
 	});
 })();
